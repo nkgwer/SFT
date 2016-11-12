@@ -39,5 +39,5 @@
 
 
 This program is a Slow Fourier Transformer
-In order to Slow Fourier Transform (or SFT) your original periodical function, code a definition of the function in <function.py>. There are some of the example already created in <function.py>. You do not have to define the period of the function, however if you do not, program will ask you to input the period of the function everytime you run the program. After you defined your function, add name of the function in to list named <names> in <function.py>, then run SFT.py. Program will ask you which function to SFT. If succeed, you will have <graph.jpg> in the same directory <SFT>. 
+In order to Slow Fourier Transform (or SFT) your original periodical function, code a definition of the function in function.py. There are some of the example already created in function.py. You do not have to define the period of the function, however if you do not, program will ask you to input the period of the function everytime you run the program. After you defined your function, add name of the function in to list named names in function.py, then run SFT.py. Program will ask you which function to SFT. If succeed, you will have graph.jpg in the same directory SFT. 
 ////////////////////////////////////////////////////////////////////////////////////////
