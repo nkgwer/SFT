@@ -1,13 +1,26 @@
 import math
 
-def saw(x):
-	return x%math.pi
-def kukei(x):
+def ceiling(x,p=0):
+	if (p==-1):
+		return -1*math.pi
+	if (p==1):
+		return 1*math.pi
+	return math.ceil(5*(x%math.pi))/5
+
+def square(x,p=0):
+	if (p==-1):
+		return -1*math.pi
+	if (p==1):
+		return 1*math.pi
 	if(x%(2*math.pi)<math.pi):
 		return 1
 	else:
 		return -1
-def abssin(x):
-	return abs(math.sin(x))
+def expwave(x):
+	if(x%(2*math.pi)<math.pi):
+		return math.exp(x%math.pi)
+	else:
+		return -1*math.exp(x%math.pi)
 
-names=[kukei]
+
+names=[square,expwave,ceiling]

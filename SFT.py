@@ -14,7 +14,10 @@ def integrate(func,trig,sp,ep,steps,n):
 	return 2*sum*1.0/(ep-sp)
 def periodDetect(func):
 	print "Detecting the period of the function"
-	return None,-1
+	try:
+		return [func(0,-1),func(0,1)],1
+	except:
+		return None,-1
 def main():
 	for num,func in enumerate(names):
 		print num, func.__name__
@@ -27,6 +30,13 @@ def main():
 			print "failed"
 	func=names[func_num]
 	period,ret=periodDetect(func)
+	if(ret==1):
+		print "Detected period"
+		sp=period[0]
+		ep=period[1]
+		if (sp>=ep):
+			print "period was not valid"
+			ret=-1
 	if(ret==-1):
 		print "Could not detect the period"
 		while(True):
@@ -38,11 +48,19 @@ def main():
 				print "failed"
 			except:
 				print "failed"
+
 	coslist=[]
 	sinlist=[]
 	f = open('SFT.txt', 'w')
 	f.write("cos\n")
-	terms=10
+	while (True):
+		try:
+			terms=input("Enter the # of terms ")
+			if(terms>0):
+				break
+		except:
+			print"failed"
+
 	for i in tqdm(range(terms)):
 		ret=integrate(func,math.cos,sp,ep,steps,i)
 		coslist.append(ret)
@@ -67,10 +85,10 @@ def main():
 		sum+=coefficient*np.cos(num*np.linspace(sp-ep,ep-sp,1000))
 	for num,coefficient in enumerate(sinlist):
 		sum+=coefficient*np.sin(num*np.linspace(sp-ep,ep-sp,1000))
-	print sum
 	plt.plot(np.linspace(sp-ep,ep-sp,1000),sum)
 	plt.axis([sp-ep,ep-sp, 1.2*min(sum), 1.2*max(sum)])
 	plt.savefig("graph.jpg", dpi=1000)
+	print "Finished"
 
 if __name__ == '__main__': 
 	main()
