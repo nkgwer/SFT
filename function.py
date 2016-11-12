@@ -7,4 +7,7 @@ def kukei(x):
 		return 1
 	else:
 		return -1
-names=[saw,kukei]
+def abssin(x):
+	return abs(math.sin(x))
+
+names=[kukei]

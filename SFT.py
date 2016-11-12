@@ -42,7 +42,7 @@ def main():
 	sinlist=[]
 	f = open('SFT.txt', 'w')
 	f.write("cos\n")
-	terms=100
+	terms=10
 	for i in tqdm(range(terms)):
 		ret=integrate(func,math.cos,sp,ep,steps,i)
 		coslist.append(ret)
