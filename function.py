@@ -1,4 +1,13 @@
 import math
+def arctan(x,p=0):
+	if (p==-1):
+		#starting point of the period
+		return -1*math.pi
+	if (p==1):
+		#ending point of the period
+		return 1*math.pi
+	x=x%math.pi
+	return math.atan(x)
 
 def randomwave(x,p=0):
 	if (p==-1):
@@ -9,14 +18,6 @@ def randomwave(x,p=0):
 		return 1*math.pi
 	x=x%math.pi
 	return math.exp(x)*math.sin(5*x)
-def ceiling(x,p=0):
-	if (p==-1):
-		#starting point of the period
-		return -1*math.pi
-	if (p==1):
-		#ending point of the period
-		return 1*math.pi
-	return math.ceil(5*(x%math.pi))/5
 
 def square(x,p=0):
 	if (p==-1):
@@ -50,9 +51,26 @@ def saw(x,p=0):
 	if (p==1):
 		return 1.0
 	return x%1
+def idk(x,p=0):
+	if (p==-1):
+		return 0.0
+	if (p==1):
+		return 1.0
+	x=x%1
+	return x**x
+def vwave(x,p=0):
+	if (p==-1):
+		return -1*math.pi
+	if (p==1):
+		return 1*math.pi
+	if(x%(2*math.pi)<math.pi):
+		return x%(2*math.pi)
+	else:
+		return -1*x%(2*math.pi)
+
 
 	
 	                   
 
 
-names=[square,expwave,ceiling,randomwave,voice,saw]
+names=[square,expwave,randomwave,voice,saw,arctan,idk,vwave]
