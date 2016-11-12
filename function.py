@@ -44,9 +44,15 @@ def voice(x,p=0):
 		return 1*math.pi
 	x=x/(2*math.pi)
 	return ret[int(x*400)%len(ret)]
+def saw(x,p=0):
+	if (p==-1):
+		return 0.0
+	if (p==1):
+		return 1.0
+	return x%1
 
 	
 	                   
 
 
-names=[square,expwave,ceiling,randomwave,voice]
+names=[square,expwave,ceiling,randomwave,voice,saw]

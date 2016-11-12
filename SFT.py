@@ -9,9 +9,9 @@ def integrate(func,trig,sp,ep,steps,n):
 	ix=sp
 	dx=(ep-sp)*1.0/steps
 	for i in range(steps):
-		sum+=func(ix)*trig(2.0*math.pi*1.0*n*ix/(ep-sp))*dx
+		sum+=func(ix)*trig(math.pi*2.0*n*ix/(ep-sp))*dx
 		ix+=dx
-	return 2*sum*1.0/(ep-sp)
+	return sum*2.0/(ep-sp)
 def periodDetect(func):
 	print "Detecting the period of the function"
 	try:
@@ -79,15 +79,16 @@ def main():
 
 	f.close()
 	funcv = np.vectorize(func)
-	plt.plot(np.linspace(sp-ep,ep-sp,1000),funcv(np.linspace(sp-ep,ep-sp,1000)))
+	original=funcv(np.linspace(sp-ep,ep-sp,1000))
+	plt.plot(np.linspace(sp-ep,ep-sp,1000),original)
 	sum=np.ones(1000)*a0/2.0
 	for num,coefficient in enumerate(coslist):
-		sum+=coefficient*np.cos(num*np.linspace(sp-ep,ep-sp,1000))
+		sum+=coefficient*np.cos(2.0*math.pi*num*np.linspace(sp-ep,ep-sp,1000)/(ep-sp))
 	for num,coefficient in enumerate(sinlist):
-		sum+=coefficient*np.sin(num*np.linspace(sp-ep,ep-sp,1000))
+		sum+=coefficient*np.sin(2.0*math.pi*num*np.linspace(sp-ep,ep-sp,1000)/(ep-sp))
 	plt.plot(np.linspace(sp-ep,ep-sp,1000),sum)
-	plt.axis([sp-ep,ep-sp, 1.2*min(sum), 1.2*max(sum)])
-	plt.savefig("graph.jpg", dpi=1000)
+	#plt.axis([sp-ep,ep-sp, 1.2*min(original), 1.2*max(original)])
+	plt.savefig("graph.jpg", dpi=400)
 	print "Finished"
 
 if __name__ == '__main__': 
