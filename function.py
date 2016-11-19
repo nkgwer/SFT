@@ -67,10 +67,17 @@ def vwave(x,p=0):
 		return x%(2*math.pi)
 	else:
 		return -1*x%(2*math.pi)
+def logwave(x,p=0):
+	if (p==-1):
+		return -1*math.pi
+	if (p==1):
+		return 1*math.pi
+	x=(x%(2*math.pi))-math.pi
+	return 1.0/(abs(x)+1)
 
 
 	
 	                   
 
 
-names=[square,expwave,randomwave,voice,saw,arctan,idk,vwave]
+names=[square,expwave,randomwave,voice,saw,arctan,idk,vwave,logwave]
